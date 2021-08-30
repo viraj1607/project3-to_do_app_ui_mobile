@@ -1,0 +1,228 @@
+body {
+    margin: 5vh auto 0;
+    max-width: 900px;
+    font-family: sans-serif;
+    line-height: 1.5;
+    background-color: #fff;
+}
+
+.header-all {
+    margin: 5px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-all h1 span {
+    color: gray;
+    font-weight: 100;
+}
+
+.header-task {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.header-task h1 {
+    text-align: center;
+    width: 60%;
+    border-bottom: 2px solid gray;
+    line-height: 1px;
+}
+.header-task h1 span {
+    background-color: #fff;
+}
+
+.header-all a,
+.header-task a {
+    text-decoration: none;
+    outline: none;
+    color: gray;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+.header-all a i,
+.header-task a i {
+    color: tomato;
+    font-size: 110%;
+}
+
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.main-task .tasks {
+    flex: 0 45%;
+    height: 350px;
+}
+.tasks {
+    position: relative;
+    flex: 0 27%;
+    margin: 2%;
+    height: 300px;
+    border: 1px solid tomato;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px gray;
+    overflow: auto;
+    text-align: center;
+}
+.tasks a {
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    outline: none;
+    font-size: 20px;
+    color: tomato;
+    margin-top: 15px;
+}
+.tasks hr {
+    color: #000;
+    width: 80%;
+    height: 0.01px;
+    margin: 10px 0 15px auto;
+}
+.tasks p.task {
+    font-size: 16px;
+    margin: 5px;
+}
+.tasks p.task.completed {
+    color: tomato;
+    text-decoration: line-through 3px red;
+}
+.tasks p.task.pending {
+    color: black;
+    text-align: start;
+    padding-left: 20px;
+}
+.tasks a.add-item {
+    width: initial;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+
+.new-item {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}
+.new-item a {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    cursor: default;
+    text-decoration: none;
+    outline: none;
+}
+#new-item:target,
+#new-item:target .new-item-content {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
+.new-item-content {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #f4b1aa;
+    border-radius: 5px;
+    box-shadow: 7px 7px 5px grey;
+    padding: 20px 50px;
+    text-align: center;
+    max-width: 50vw;
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}
+.new-item-content h3 {
+    font-weight: 500;
+    color: #f07568;
+    margin: 0 0 20px;
+}
+.new-item-content input {
+    border: 1px solid #f4b1aa;
+    border-radius: 4px;
+    box-shadow: 2px 2px 3px #c3c3c3a1;
+    font-size: 1.5rem;
+    max-width: 100%;
+}
+.new-item-content button {
+    background-color: #e74c3c;
+    color: white;
+    border: 0;
+    border-radius: 25px;
+    padding: 0 10px;
+    font-size: large;
+    margin: 10px 0 0;
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 500px){
+    
+    .header-all {
+        justify-content: space-evenly;
+    }
+    
+    .header-task {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .header-task h1 {
+        border-bottom: none;
+        flex: 1 1 content;
+        order: 2;
+    }
+    .header-task h1 span {
+        background-color: #fff;
+    }
+    
+    .header-all a,
+    .header-task a {
+        font-size: 1.5rem;
+    }
+    .header-all a span,
+    .header-task a span {
+        display: none;
+    }
+
+    .main-task .tasks {
+        flex: 0 80%;
+        height: 350px;
+    }
+    .main-all {
+        flex-direction: column;
+    }
+    .main-all .tasks {
+        overflow: hidden;
+    }
+    .main-all .tasks a {
+        text-align: left;
+        padding-left: 2rem;
+        font-size: 20px;
+        color: #333;
+        margin: 15px;
+    }
+    .main-all .tasks hr {
+        display: none;
+    }
+    .main-all .tasks p.task {
+        display: none;
+    }
+    .main-all .tasks p.task.completed {
+        display: none;
+    }
+    .main-all .tasks p.task.pending {
+        display: none;
+    }
+}
